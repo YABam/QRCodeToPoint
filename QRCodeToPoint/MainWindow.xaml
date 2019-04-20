@@ -1,0 +1,74 @@
+﻿<Window x:Class="QRCodeToPoint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QRCodeToPoint"
+        mc:Ignorable="d"
+        Title="点阵二维码生成器 by yangalen_610" Height="350" Width="525" Background="#FFA0A0A0">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="23"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="0" Margin="2" Click="btnOpen_Click">
+           读二维码
+        </Button>
+
+		<Button x:Name="btnChange" Grid.Row="2" Grid.Column="3" Margin="2" Click="btnChange_Click">
+			转换
+		</Button>
+
+		<Image x:Name="QRCodeImage" Grid.Row="1" Grid.Column="2"/>
+
+        <Button x:Name="btnSave" Grid.Row="0" Grid.Column="4" Margin="2" Click="btnSave_Click">
+            保存
+        </Button>
+
+        <Label x:Name="QRResult" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,10,0">
+            这里显示结果
+        </Label>
+
+        <TextBox x:Name="tbInput" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,10,0">
+            这里输入要编码的字符串
+        </TextBox>
+
+        <Label Grid.Row="1" VerticalAlignment="Top">尺  寸:</Label>
+        <TextBox x:Name="tbSize" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0,5,10,0" IsEnabled="False">200</TextBox>
+        <Label Grid.Row="1" VerticalAlignment="Top" Margin="0,25,0,0">距  离:</Label>
+        <TextBox x:Name="tbDistance" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0,30,10,0">10</TextBox>
+        <Label Grid.Row="1" VerticalAlignment="Top" Margin="0,50,0,0">点大小：</Label>
+        <TextBox x:Name="tbPointSize" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0,55,10,0">2</TextBox>
+
+        <Label Grid.Row="1" VerticalAlignment="Top" Margin="0,75,0,0">背景色：</Label>
+        <Label x:Name="imgBackGround" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Height="20" Width="20" Margin="-30,80,0,0" Background="White"/>
+        <Label x:Name ="lbBackGroundR" Grid.Row="1" VerticalAlignment="Top" Margin="0,100,0,0">R：255</Label>
+        <Slider x:Name ="sldBackGroundR" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="255" Margin="0,125,10,0" ValueChanged="sldBackGround_ValueChanged" IsSnapToTickEnabled="True"/>
+        <Label x:Name ="lbBackGroundG" Grid.Row="1" VerticalAlignment="Top" Margin="0,150,0,0">G：255</Label>
+        <Slider x:Name ="sldBackGroundG" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="255" Margin="0,175,10,0" ValueChanged="sldBackGround_ValueChanged" IsSnapToTickEnabled="True"/>
+        <Label x:Name ="lbBackGroundB" Grid.Row="1" VerticalAlignment="Top" Margin="0,200,0,0">B：255</Label>
+        <Slider x:Name ="sldBackGroundB" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="255" Margin="0,225,10,0" ValueChanged="sldBackGround_ValueChanged" IsSnapToTickEnabled="True"/>
+
+        <Label x:Name ="lbPositionAlpha" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,0,0" Grid.ColumnSpan="2">定位白透明度：255</Label>
+        <Slider x:Name ="sldPositionAlpha" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="255" Margin="10,25,0,0" ValueChanged="sldPositionAlpha_ValueChanged" IsSnapToTickEnabled="True"></Slider>
+        
+        <Label Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,75,0,0">前景色：</Label>
+        <Label x:Name="imgFrontGround" Grid.Row="1" Grid.Column="4" VerticalAlignment="Top" Height="20" Width="20" Margin="-30,80,0,0" Background="Black"/>
+        <Label x:Name ="lbFrontGroundR" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,100,0,0">R：0</Label>
+        <Slider x:Name ="sldFrontGroundR" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="0" Margin="10,125,0,0" ValueChanged="sldFrontGround_ValueChanged" IsSnapToTickEnabled="True"></Slider>
+        <Label x:Name ="lbFrontGroundG" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,150,0,0">G：0</Label>
+        <Slider x:Name ="sldFrontGroundG" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="0" Margin="10,175,0,0" ValueChanged="sldFrontGround_ValueChanged" IsSnapToTickEnabled="True"/>
+        <Label x:Name ="lbFrontGroundB" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,200,0,0">B：0</Label>
+        <Slider x:Name ="sldFrontGroundB" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Maximum="255" Value="0" Margin="10,225,0,0" ValueChanged="sldFrontGround_ValueChanged" IsSnapToTickEnabled="True"></Slider>
+    </Grid>
+</Window>
